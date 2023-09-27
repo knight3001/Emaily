@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
+import { connect } from "react-redux";
+import Header from "./components/Header";
+import * as actions from "./actions";
 
-const Header = () => {
-  return <h2>Header</h2>;
-};
 const Dashboard = () => {
   return <h2>Dashboard</h2>;
 };
@@ -16,9 +16,13 @@ const Landing = () => {
   return <h2>Landing</h2>;
 };
 
-function App() {
+function App({ fetchUser }) {
+  useEffect(() => {
+    fetchUser();
+  }, []);
+
   return (
-    <div>
+    <div className="container">
       <BrowserRouter>
         <div>
           <Header />
@@ -31,4 +35,8 @@ function App() {
   );
 }
 
-export default App;
+const mapDispatchToProps = {
+  fetchUser: actions.fetchUser,
+};
+
+export default connect(null, mapDispatchToProps)(App);

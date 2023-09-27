@@ -2,11 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
+import reduxThunk from "redux-thunk";
+import "materialize-css/dist/css/materialize.min.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import reducers from "./reducers";
 
-const store = createStore(reducers, {}, applyMiddleware());
+const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 

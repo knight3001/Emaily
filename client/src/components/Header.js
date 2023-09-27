@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Header = ({ auth }) => {
   const renderContent = () => {
@@ -15,7 +16,7 @@ const Header = ({ auth }) => {
       default:
         return (
           <li>
-            <a href="">Logout</a>
+            <a href="/api/logout">Logout</a>
           </li>
         );
     }
@@ -23,9 +24,9 @@ const Header = ({ auth }) => {
   return (
     <nav>
       <div className="nav-wrapper">
-        <a href="/" className="left brand-logo">
+        <Link to={auth ? "/surveys" : "/"} className="left brand-logo">
           Emaily
-        </a>
+        </Link>
         <ul className="right">{renderContent()}</ul>
       </div>
     </nav>

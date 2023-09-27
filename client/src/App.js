@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 import { connect } from "react-redux";
 import Header from "./components/Header";
+import Landing from "./components/Landing";
 import * as actions from "./actions";
 
 const Dashboard = () => {
@@ -10,10 +11,6 @@ const Dashboard = () => {
 
 const SurveyNew = () => {
   return <h2>SurveyNew</h2>;
-};
-
-const Landing = () => {
-  return <h2>Landing</h2>;
 };
 
 function App({ fetchUser }) {

@@ -32,8 +32,4 @@ function App({ fetchUser }) {
   );
 }
 
-const mapDispatchToProps = {
-  fetchUser: actions.fetchUser,
-};
-
-export default connect(null, mapDispatchToProps)(App);
+export default connect(null, actions)(App);

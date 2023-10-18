@@ -21,6 +21,7 @@ class MailgunMailer {
 
   async send() {
     const resp = await Mailgun.messages().send(this.data);
+    console.log("mailgun service", resp);
     return resp;
   }
 }

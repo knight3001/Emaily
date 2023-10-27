@@ -18,3 +18,13 @@ export const handleToken = (token) => async (dispatch) => {
     payload: res.data,
   });
 };
+
+export const sumbitSurvey = (values, history) => async (dispatch) => {
+  const res = await axios.post("/api/surveys", values);
+
+  history.push("/surveys");
+  dispatch({
+    type: FETCH_USER,
+    payload: res.data,
+  });
+};
